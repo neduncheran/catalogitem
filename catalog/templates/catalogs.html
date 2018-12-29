@@ -1,0 +1,62 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+	<div class="row divider blue">
+    <div class="col-md-12"></div>
+</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>Catalog App</h1>
+		</div>
+	</div>
+
+<div class='flash'>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+        <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+</div>
+
+<!--div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href="{{url_for('newCatalog')}}">
+				<button class="button1" id="new-catalog">
+					<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Add Catalog
+				</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div-->
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <h2>Categories</h2> {% for catalog in catalogs %}
+        <a href="{{url_for('showCatalogItem', name = catalog.name)}}">
+
+            <h3>{{catalog.name}}</h3>
+
+        </a>
+
+        {% endfor %}
+    </div>
+
+    <div class="col-md-7">
+	<a href="{{url_for('newCatalog')}}">
+	<h3>Add Item</h3>
+	</a>
+        <h2>Latest Items</h2> {% for catalogItem in catalogItems %}
+ <a href="{{url_for('viewDescription', catalog_name = catalogItem.category, item_name=catalogItem.title)}}">
+        <h3>{{catalogItem.title }}  <b>{{catalogItem.category }}</b> </h3>
+      </a>    
+		{% endfor %}
+    </div>
+
+    <div class="col-md-1"></div>
+</div>
+{% endblock %}

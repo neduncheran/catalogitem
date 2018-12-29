@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider blue">
+    <div class="col-md-12"></div>
+</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>Catalog App</h1>
+		</div>
+	</div>
+
+
+	
+
+
+<form action="#" method = 'post'>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+			
+			<div class="form-group">
+			<h2>Delete Item</h2>
+			
+			</div>
+			
+<h5> Are you sure you want to delete {{item.title}}? </h5>
+<br/>
+		<div class="form-group">
+					<button type="submit" class="button3" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Submit</button>
+					<a href = '{{url_for('showCatalog')}}'>
+						<!--button class="btn btn-default delete" type="button">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button-->
+					</a>
+					</div>
+	
+</form>
+
+
+{% endblock %}
